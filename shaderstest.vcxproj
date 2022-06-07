@@ -1,0 +1,1619 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{d2f6430a-3721-410e-80ba-d6bc6dd95a61}</ProjectGuid>
+    <RootNamespace>shaderstest</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
+    <IntDir>Build\temp\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;CAPPUCCINOTEMPLATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir)cappuccino-sdk\incl\cocos2dx;$(SolutionDir)cappuccino-sdk\incl\cocos2dx\include;$(SolutionDir)cappuccino-sdk\incl\cocos2dx\kazmath\include;$(SolutionDir)cappuccino-sdk\incl\cocos2dx\platform\win32;$(SolutionDir)cappuccino-sdk\incl\cocos2dx\platform\third_party\win32;$(SolutionDir)cappuccino-sdk\incl\cocos2dx\platform\third_party\win32\OGLES;$(SolutionDir)gd.h\include;$(SolutionDir)gd.h\;$(SolutionDir)minhook\include;$(SolutionDir)cappuccino-sdk\incl\extensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>$(SolutionDir)cappuccino-sdk\lib\cappuccino.lib;$(SolutionDir)cappuccino-sdk\lib\libExtensions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "D:\Dev\VisualStudio\CappuccinoSDK\CappuccinoSDK-master\projects\shaderstest\Debug\shaderstest.dll" "D:\SteamLibrary\steamapps\common\Geometry Dash\shaderstest.dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir)gd.h\include;$(SolutionDir)gd.h;$(SolutionDir)minhook\include;$(SolutionDir)cocos2dx\kazmath\include;$(SolutionDir)cocos2dx\include;$(SolutionDir)cocos2dx;$(SolutionDir)cocos2dx\platform\third_party\win32\OGLES;$(SolutionDir)cocos2dx\platform\third_party\win32;$(SolutionDir)cocos2dx\platform\win32;$(SolutionDir)extensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>$(SolutionDir)cocos2dx/libcocos2d.lib;$(SolutionDir)extensions/libExtensions.lib;$(SolutionDir)glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "D:\Dev\VisualStudio\GD\CappuccinoSDK\CappuccinoSDK-master\projects\shaderstest\Build\Release\shaderstest.dll" "D:\SteamLibrary\steamapps\common\Geometry Dash Geode\extensions\shaderstest.dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;CAPPUCCINOTEMPLATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;CAPPUCCINOTEMPLATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="cocos2dx\actions\CCAction.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionCamera.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionCatmullRom.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionEase.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionGrid.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionGrid3D.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionInstant.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionInterval.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionManager.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionPageTurn3D.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionProgressTimer.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionTiledGrid.h" />
+    <ClInclude Include="cocos2dx\actions\CCActionTween.h" />
+    <ClInclude Include="cocos2dx\base_nodes\CCAtlasNode.h" />
+    <ClInclude Include="cocos2dx\base_nodes\CCGLBufferedNode.h" />
+    <ClInclude Include="cocos2dx\base_nodes\CCNode.h" />
+    <ClInclude Include="cocos2dx\CCCamera.h" />
+    <ClInclude Include="cocos2dx\CCConfiguration.h" />
+    <ClInclude Include="cocos2dx\CCDirector.h" />
+    <ClInclude Include="cocos2dx\ccFPSImages.h" />
+    <ClInclude Include="cocos2dx\CCScheduler.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCAffineTransform.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCArray.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCAutoreleasePool.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCBool.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCDataVisitor.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCDictionary.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCDouble.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCFloat.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCGeometry.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCInteger.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCNS.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCObject.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCSet.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCString.h" />
+    <ClInclude Include="cocos2dx\cocoa\CCZone.h" />
+    <ClInclude Include="cocos2dx\draw_nodes\CCDrawingPrimitives.h" />
+    <ClInclude Include="cocos2dx\draw_nodes\CCDrawNode.h" />
+    <ClInclude Include="cocos2dx\effects\CCGrabber.h" />
+    <ClInclude Include="cocos2dx\effects\CCGrid.h" />
+    <ClInclude Include="cocos2dx\include\ccConfig.h" />
+    <ClInclude Include="cocos2dx\include\CCEventType.h" />
+    <ClInclude Include="cocos2dx\include\ccMacros.h" />
+    <ClInclude Include="cocos2dx\include\CCProtocols.h" />
+    <ClInclude Include="cocos2dx\include\ccTypeInfo.h" />
+    <ClInclude Include="cocos2dx\include\ccTypes.h" />
+    <ClInclude Include="cocos2dx\include\cocos2d.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\aabb.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\GL\mat4stack.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\GL\matrix.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\kazmath.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\mat3.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\mat4.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\neon_matrix_impl.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\plane.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\quaternion.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\ray2.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\utility.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\vec2.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\vec3.h" />
+    <ClInclude Include="cocos2dx\kazmath\include\kazmath\vec4.h" />
+    <ClInclude Include="cocos2dx\keypad_dispatcher\CCKeypadDelegate.h" />
+    <ClInclude Include="cocos2dx\keypad_dispatcher\CCKeypadDispatcher.h" />
+    <ClInclude Include="cocos2dx\label_nodes\CCLabelAtlas.h" />
+    <ClInclude Include="cocos2dx\label_nodes\CCLabelBMFont.h" />
+    <ClInclude Include="cocos2dx\label_nodes\CCLabelTTF.h" />
+    <ClInclude Include="cocos2dx\layers_scenes_transitions_nodes\CCLayer.h" />
+    <ClInclude Include="cocos2dx\layers_scenes_transitions_nodes\CCScene.h" />
+    <ClInclude Include="cocos2dx\layers_scenes_transitions_nodes\CCTransition.h" />
+    <ClInclude Include="cocos2dx\layers_scenes_transitions_nodes\CCTransitionPageTurn.h" />
+    <ClInclude Include="cocos2dx\layers_scenes_transitions_nodes\CCTransitionProgress.h" />
+    <ClInclude Include="cocos2dx\menu_nodes\CCMenu.h" />
+    <ClInclude Include="cocos2dx\menu_nodes\CCMenuItem.h" />
+    <ClInclude Include="cocos2dx\misc_nodes\CCClippingNode.h" />
+    <ClInclude Include="cocos2dx\misc_nodes\CCMotionStreak.h" />
+    <ClInclude Include="cocos2dx\misc_nodes\CCProgressTimer.h" />
+    <ClInclude Include="cocos2dx\misc_nodes\CCRenderTexture.h" />
+    <ClInclude Include="cocos2dx\particle_nodes\CCParticleBatchNode.h" />
+    <ClInclude Include="cocos2dx\particle_nodes\CCParticleExamples.h" />
+    <ClInclude Include="cocos2dx\particle_nodes\CCParticleSystem.h" />
+    <ClInclude Include="cocos2dx\particle_nodes\CCParticleSystemQuad.h" />
+    <ClInclude Include="cocos2dx\particle_nodes\firePngData.h" />
+    <ClInclude Include="cocos2dx\platform\CCAccelerometerDelegate.h" />
+    <ClInclude Include="cocos2dx\platform\CCApplicationProtocol.h" />
+    <ClInclude Include="cocos2dx\platform\CCCommon.h" />
+    <ClInclude Include="cocos2dx\platform\CCDevice.h" />
+    <ClInclude Include="cocos2dx\platform\CCEGLViewProtocol.h" />
+    <ClInclude Include="cocos2dx\platform\CCFileUtils.h" />
+    <ClInclude Include="cocos2dx\platform\CCImage.h" />
+    <ClInclude Include="cocos2dx\platform\CCImageCommon_cpp.h" />
+    <ClInclude Include="cocos2dx\platform\CCPlatformConfig.h" />
+    <ClInclude Include="cocos2dx\platform\CCPlatformMacros.h" />
+    <ClInclude Include="cocos2dx\platform\CCSAXParser.h" />
+    <ClInclude Include="cocos2dx\platform\CCThread.h" />
+    <ClInclude Include="cocos2dx\platform\platform.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libcurl\include\curl\curl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libcurl\include\curl\curlbuild.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libcurl\include\curl\curlrules.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libcurl\include\curl\curlver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libcurl\include\curl\easy.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libcurl\include\curl\mprintf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libcurl\include\curl\multi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libcurl\include\curl\stdcheaders.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libcurl\include\curl\typecheck-gcc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libcurl\include\curl\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libjpeg\include\jconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libjpeg\include\jerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libjpeg\include\jmorecfg.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libjpeg\include\jpeglib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libpng\include\pngconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libpng\include\pngusr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libwebp\include\decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libwebp\include\encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\android\prebuilt\libwebp\include\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\blackberry\include\libwebp\decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\blackberry\include\libwebp\encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\blackberry\include\libwebp\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libjpeg\jconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libjpeg\jerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libjpeg\jmorecfg.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libjpeg\jpeglib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libpng\pngconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libwebp\webp\decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libwebp\webp\encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libwebp\webp\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\c14n.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\catalog.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\chvalid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\debugXML.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\dict.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\DOCBparser.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\encoding.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\entities.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\globals.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\hash.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\HTMLparser.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\HTMLtree.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\list.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\nanoftp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\nanohttp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\parser.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\parserInternals.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\pattern.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\relaxng.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\SAX.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\SAX2.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\schemasInternals.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\schematron.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\threads.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\tree.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\uri.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\valid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xinclude.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xlink.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlautomata.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlexports.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlIO.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlmemory.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlmodule.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlreader.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlregexp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlsave.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlschemas.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlschemastypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlstring.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlunicode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlversion.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xmlwriter.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xpath.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xpathInternals.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libxml2\libxml\xpointer.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libz\zconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\emscripten\libz\zlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\curl\curl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\curl\curlbuild.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\curl\curlrules.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\curl\curlver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\curl\easy.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\curl\mprintf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\curl\multi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\curl\stdcheaders.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\curl\typecheck-gcc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\webp\decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\webp\encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\ios\webp\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\curl\curl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\curl\curlbuild.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\curl\curlrules.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\curl\curlver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\curl\easy.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\curl\mprintf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\curl\multi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\curl\stdcheaders.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\curl\typecheck-gcc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\include64\curl\curl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\include64\curl\curlbuild.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\include64\curl\curlrules.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\include64\curl\curlver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\include64\curl\easy.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\include64\curl\mprintf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\include64\curl\multi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\include64\curl\stdcheaders.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\config\ftconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\config\ftheader.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\config\ftmodule.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\config\ftoption.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\config\ftstdlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftadvanc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftbbox.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftbdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftbitmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftbzip2.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftcache.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftchapters.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftcid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\fterrdef.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\fterrors.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftgasp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftglyph.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftgxval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftgzip.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftimage.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftincrem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftlcdfil.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftlist.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftlzw.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftmac.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftmm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftmodapi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftmoderr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftotval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftoutln.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftpfr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftrender.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftsizes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftsnames.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftstroke.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftsynth.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftsystem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\fttrigon.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\fttypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftwinfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ftxf86.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\autohint.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\ftcalc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\ftdebug.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\ftdriver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\ftgloadr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\ftmemory.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\ftobjs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\ftpic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\ftrfork.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\ftserv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\ftstream.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\fttrace.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\ftvalid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\internal.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\psaux.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\pshints.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svbdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svcid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svgldict.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svgxval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svkern.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svmm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svotval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svpfr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svpostnm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svpscmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svpsinfo.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svsfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svttcmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svtteng.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svttglyf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svwinfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\services\svxf86nm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\sfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\t1types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\internal\tttypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\t1tables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ttnameid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\tttables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\tttags.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\freetype\ttunpat.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libfreetype2\ft2build.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\cderror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\cdjpeg.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\jchuff.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\jconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\jdct.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\jdhuff.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\jerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\jinclude.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\jmemsys.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\jmorecfg.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\jpegint.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\jpeglib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\jversion.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libjpeg\transupp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libpng\cexcept.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libpng\config.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libpng\pngconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libpng\PngFile.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libpng\pngpriv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libpng\readpng.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libpng\readpng2.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libpng\resource.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libpng\writepng.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libtiff\include\t4.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libtiff\include\tif_config.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libtiff\include\tif_config.vc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libtiff\include\tif_config.wince.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libtiff\include\tif_dir.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libtiff\include\tif_fax3.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libtiff\include\tif_predict.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libtiff\include\uvcode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libwebp\decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libwebp\encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\linux\libwebp\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\mac\webp\decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\mac\webp\encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\mac\webp\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\config\ftconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\config\ftheader.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\config\ftmodule.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\config\ftoption.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\config\ftstdlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftadvanc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftbbox.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftbdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftbitmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftcache.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftchapters.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftcid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\fterrdef.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\fterrors.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftgasp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftglyph.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftgxval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftgzip.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftimage.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftincrem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftlcdfil.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftlist.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftlzw.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftmac.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftmm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftmodapi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftmoderr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftotval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftoutln.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftpfr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftrender.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftsizes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftsnames.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftstroke.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftsynth.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftsystem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\fttrigon.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\fttypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftwinfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ftxf86.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\autohint.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\ftcalc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\ftdebug.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\ftdriver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\ftgloadr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\ftmemory.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\ftobjs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\ftpic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\ftrfork.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\ftserv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\ftstream.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\fttrace.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\ftvalid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\internal.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\pcftypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\psaux.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\pshints.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svbdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svcid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svgldict.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svgxval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svkern.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svmm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svotval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svpfr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svpostnm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svpscmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svpsinfo.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svsfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svttcmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svtteng.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svttglyf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svwinfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\services\svxf86nm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\sfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\t1types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\internal\tttypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\t1tables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ttnameid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\tttables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\tttags.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\freetype\ttunpat.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\include\ft2build.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\afangles.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\afcjk.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\afdummy.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\aferrors.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\afglobal.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\afhints.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\afindic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\aflatin.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\aflatin2.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\afloader.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\afmodule.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\afpic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\aftypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\autofit\afwarp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\base\basepic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\base\ftbase.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\bdf\bdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\bdf\bdfdrivr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\bdf\bdferror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cache\ftccache.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cache\ftccback.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cache\ftcerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cache\ftcglyph.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cache\ftcimage.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cache\ftcmanag.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cache\ftcmru.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cache\ftcsbits.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cff\cffcmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cff\cffdrivr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cff\cfferrs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cff\cffgload.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cff\cffload.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cff\cffobjs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cff\cffparse.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cff\cffpic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cff\cfftoken.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cff\cfftypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cid\ciderrs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cid\cidgload.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cid\cidload.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cid\cidobjs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cid\cidparse.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cid\cidriver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\cid\cidtoken.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gxvalid\gxvalid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gxvalid\gxvcommn.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gxvalid\gxverror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gxvalid\gxvfeat.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gxvalid\gxvmod.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gxvalid\gxvmort.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gxvalid\gxvmorx.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gzip\infblock.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gzip\infcodes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gzip\inffixed.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gzip\inftrees.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gzip\infutil.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gzip\zconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gzip\zlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\gzip\zutil.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\lzw\ftzopen.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\otvalid\otvalid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\otvalid\otvcommn.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\otvalid\otverror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\otvalid\otvgpos.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\otvalid\otvmod.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pcf\pcf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pcf\pcfdrivr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pcf\pcferror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pcf\pcfread.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pcf\pcfutil.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pfr\pfrcmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pfr\pfrdrivr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pfr\pfrerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pfr\pfrgload.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pfr\pfrload.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pfr\pfrobjs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pfr\pfrsbit.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pfr\pfrtypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\psaux\afmparse.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\psaux\psauxerr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\psaux\psauxmod.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\psaux\psconv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\psaux\psobjs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\psaux\t1cmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\psaux\t1decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pshinter\pshalgo.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pshinter\pshglob.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pshinter\pshmod.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pshinter\pshnterr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pshinter\pshpic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\pshinter\pshrec.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\psnames\psmodule.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\psnames\psnamerr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\psnames\pspic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\raster\ftmisc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\raster\ftraster.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\raster\ftrend1.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\raster\rasterrs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\raster\rastpic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\sfdriver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\sferrors.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\sfntpic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\sfobjs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\ttbdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\ttcmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\ttcmapc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\ttkern.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\ttload.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\ttmtx.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\ttpost.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\sfnt\ttsbit.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\smooth\ftgrays.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\smooth\ftsmerrs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\smooth\ftsmooth.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\smooth\ftspic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\truetype\ttdriver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\truetype\tterrors.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\truetype\ttgload.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\truetype\ttgxvar.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\truetype\ttinterp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\truetype\ttobjs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\truetype\ttpic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\truetype\ttpload.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type1\t1afm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type1\t1driver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type1\t1errors.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type1\t1gload.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type1\t1load.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type1\t1objs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type1\t1parse.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type1\t1tokens.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type42\t42drivr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type42\t42error.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type42\t42objs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type42\t42parse.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\type42\t42types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\winfonts\fnterrs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\freetype\src\winfonts\winfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libtiff\headers\t4.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libtiff\headers\tif_config.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libtiff\headers\tif_dir.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libtiff\headers\tif_fax3.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libtiff\headers\tif_predict.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libtiff\headers\uvcode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\dec\decode_vp8.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\dec\vp8i.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\dec\vp8li.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\dec\webpi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\dsp\dsp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\dsp\lossless.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\dsp\yuv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\enc\backward_references.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\enc\cost.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\enc\histogram.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\enc\vp8enci.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\enc\vp8li.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\mux\muxi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\utils\bit_reader.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\utils\bit_writer.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\utils\color_cache.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\utils\filters.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\utils\huffman.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\utils\huffman_encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\utils\quant_levels.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\utils\rescaler.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\utils\thread.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\utils\utils.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\webp\decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\webp\encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\webp\format_constants.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\webp\mux.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\marmalade\libwebp\webp\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\prebuilt\libwebp\include\decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\prebuilt\libwebp\include\encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\prebuilt\libwebp\include\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\curl\curl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\curl\curlbuild.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\curl\curlrules.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\curl\curlver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\curl\easy.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\curl\mprintf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\curl\multi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\curl\stdcheaders.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\curl\typecheck-gcc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\fontconfig\fcfreetype.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\fontconfig\fcprivate.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\fontconfig\fontconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\config\ftconfig-32.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\config\ftconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\config\ftheader.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\config\ftmodule.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\config\ftoption.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\config\ftstdlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftadvanc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftbbox.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftbdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftbitmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftbzip2.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftcache.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftchapters.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftcid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\fterrdef.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\fterrors.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftgasp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftglyph.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftgxval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftgzip.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftimage.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftincrem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftlcdfil.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftlist.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftlzw.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftmac.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftmm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftmodapi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftmoderr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftotval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftoutln.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftpfr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftrender.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftsizes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftsnames.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftstroke.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftsynth.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftsystem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\fttrigon.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\fttypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftwinfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ftxf86.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\t1tables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ttnameid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\tttables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\tttags.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\freetype2\freetype\ttunpat.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\ft2build.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\jconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\jerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\jmorecfg.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\jpeglib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\pngconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\zconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-device-2.2.native\usr\include\zlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\curl\curl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\curl\curlbuild.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\curl\curlrules.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\curl\curlver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\curl\easy.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\curl\mprintf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\curl\multi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\curl\stdcheaders.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\curl\typecheck-gcc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\curl\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\fontconfig\fcfreetype.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\fontconfig\fcprivate.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\fontconfig\fontconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\config\ftconfig-32.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\config\ftconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\config\ftheader.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\config\ftmodule.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\config\ftoption.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\config\ftstdlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftadvanc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftbbox.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftbdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftbitmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftbzip2.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftcache.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftchapters.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftcid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\fterrdef.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\fterrors.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftgasp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftglyph.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftgxval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftgzip.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftimage.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftincrem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftlcdfil.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftlist.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftlzw.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftmac.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftmm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftmodapi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftmoderr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftotval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftoutln.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftpfr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftrender.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftsizes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftsnames.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftstroke.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftsynth.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftsystem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\fttrigon.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\fttypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftwinfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ftxf86.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\t1tables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ttnameid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\tttables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\tttags.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\freetype2\freetype\ttunpat.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\ft2build.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\jconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\jerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\jmorecfg.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\jpeglib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\pngconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\zconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\tizen\rootstraps\tizen-emulator-2.2.native\usr\include\zlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\curl\curl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\curl\curlbuild.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\curl\curlrules.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\curl\curlver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\curl\easy.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\curl\mprintf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\curl\multi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\curl\stdcheaders.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\curl\typecheck-gcc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\iconv\iconv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\libjpeg\jconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\libjpeg\jconfig_linux.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\libjpeg\jconfig_win.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\libjpeg\jerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\libjpeg\jmorecfg.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\libjpeg\jpeglib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\libpng\pngconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\libwebp\decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\libwebp\encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\libwebp\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\OGLES\GL\glew.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\OGLES\GL\glxew.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\OGLES\GL\wglew.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\pthread\pthread.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\pthread\sched.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\pthread\semaphore.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\zlib\zconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\win32\zlib\zlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\config\ftconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\config\ftheader.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\config\ftmodule.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\config\ftoption.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\config\ftstdlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftadvanc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftautoh.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftbbox.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftbdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftbitmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftbzip2.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftcache.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftcffdrv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftchapters.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftcid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\fterrdef.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\fterrors.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftgasp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftglyph.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftgxval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftgzip.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftimage.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftincrem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftlcdfil.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftlist.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftlzw.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftmac.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftmm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftmodapi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftmoderr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftotval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftoutln.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftpfr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftrender.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftsizes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftsnames.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftstroke.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftsynth.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftsystem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\fttrigon.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftttdrv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\fttypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftwinfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ftxf86.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\autohint.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\ftcalc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\ftdebug.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\ftdriver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\ftgloadr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\ftmemory.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\ftobjs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\ftpic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\ftrfork.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\ftserv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\ftstream.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\fttrace.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\ftvalid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\internal.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\psaux.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\pshints.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svbdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svcid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svgldict.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svgxval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svkern.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svmm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svotval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svpfr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svpostnm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svprop.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svpscmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svpsinfo.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svsfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svttcmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svtteng.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svttglyf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svwinfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\services\svxf86nm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\sfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\t1types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\internal\tttypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\t1tables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ttnameid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\tttables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\tttags.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\freetype\ttunpat.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\freetype\include\ft2build.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\libjpeg\jconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\libjpeg\jconfig_linux.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\libjpeg\jconfig_win.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\libjpeg\jerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\libjpeg\jmorecfg.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\libjpeg\jpeglib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\libpng\pngconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\libtiff\tif_config.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\libwebp\decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\libwebp\encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\libwebp\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\zlib\zconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\winrt\zlib\zlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\config\ftconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\config\ftheader.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\config\ftmodule.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\config\ftoption.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\config\ftstdlib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftadvanc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftautoh.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftbbox.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftbdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftbitmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftbzip2.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftcache.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftcffdrv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftchapters.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftcid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\fterrdef.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\fterrors.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftgasp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftglyph.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftgxval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftgzip.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftimage.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftincrem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftlcdfil.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftlist.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftlzw.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftmac.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftmm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftmodapi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftmoderr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftotval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftoutln.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftpfr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftrender.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftsizes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftsnames.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftstroke.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftsynth.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftsystem.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\fttrigon.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftttdrv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\fttypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftwinfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ftxf86.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\autohint.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\ftcalc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\ftdebug.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\ftdriver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\ftgloadr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\ftmemory.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\ftobjs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\ftpic.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\ftrfork.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\ftserv.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\ftstream.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\fttrace.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\ftvalid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\internal.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\psaux.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\pshints.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svbdf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svcid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svgldict.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svgxval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svkern.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svmm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svotval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svpfr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svpostnm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svprop.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svpscmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svpsinfo.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svsfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svttcmap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svtteng.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svttglyf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svwinfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\services\svxf86nm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\sfnt.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\t1types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\internal\tttypes.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\t1tables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ttnameid.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\tttables.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\tttags.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\freetype\ttunpat.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\freetype\include\ft2build.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\curl\curl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\curl\curlbuild.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\curl\curlrules.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\curl\curlver.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\curl\easy.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\curl\mprintf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\curl\multi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\curl\stdcheaders.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\curl\typecheck-gcc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\libcurl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\amigaos.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\arpa_telnet.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\asyn.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\axtls.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\bundles.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\config-amigaos.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\config-dos.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\config-mac.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\config-os400.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\config-riscos.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\config-symbian.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\config-tpf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\config-vxworks.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\config-win32.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\config-win32ce.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\conncache.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\connect.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\content_encoding.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\cookie.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curlx.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_addrinfo.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_base64.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_darwinssl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_fnmatch.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_gethostname.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_gssapi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_hmac.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_ldap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_md4.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_md5.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_memory.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_memrchr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_multibyte.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_ntlm.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_ntlm_core.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_ntlm_msgs.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_ntlm_wb.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_rtmp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_sasl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_schannel.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_sec.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_setup.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_setup_once.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_sspi.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\curl_threads.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\cyassl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\dict.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\dotdot.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\easyif.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\escape.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\file.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\fileinfo.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\formdata.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\ftp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\ftplistparser.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\getinfo.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\gopher.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\gskit.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\gtls.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\hash.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\hostcheck.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\hostip.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\http.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\http2.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\http_chunks.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\http_digest.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\http_negotiate.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\http_proxy.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\if2ip.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\imap.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\inet_ntop.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\inet_pton.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\llist.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\memdebug.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\multihandle.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\multiif.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\netrc.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\non-ascii.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\nonblock.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\nssg.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\parsedate.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\pingpong.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\pipeline.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\polarssl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\polarssl_threadlock.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\pop3.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\progress.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\qssl.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\rawstr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\rtsp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\select.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\sendf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\setup-os400.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\setup-vms.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\share.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\sigpipe.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\slist.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\smtp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\sockaddr.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\socks.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\speedcheck.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\splay.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\ssh.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\sslgen.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\ssluse.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\strdup.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\strequal.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\strerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\strtok.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\strtoofft.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\telnet.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\tftp.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\timeval.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\transfer.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\url.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\urldata.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\warnless.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\wildcard.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libcurl\lib\x509asn1.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libjpeg\jconfig.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libjpeg\jconfig_linux.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libjpeg\jconfig_win.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libjpeg\jerror.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libjpeg\jmorecfg.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libjpeg\jpeglib.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libpng\pngconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libtiff\tif_config.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libwebp\decode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libwebp\encode.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\libwebp\types.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\zlib\zconf.h" />
+    <ClInclude Include="cocos2dx\platform\third_party\wp8\zlib\zlib.h" />
+    <ClInclude Include="cocos2dx\platform\win32\CCAccelerometer.h" />
+    <ClInclude Include="cocos2dx\platform\win32\CCApplication.h" />
+    <ClInclude Include="cocos2dx\platform\win32\CCEGLView.h" />
+    <ClInclude Include="cocos2dx\platform\win32\CCFileUtilsWin32.h" />
+    <ClInclude Include="cocos2dx\platform\win32\CCGL.h" />
+    <ClInclude Include="cocos2dx\platform\win32\CCPlatformDefine.h" />
+    <ClInclude Include="cocos2dx\platform\win32\CCStdC.h" />
+    <ClInclude Include="cocos2dx\platform\win32\compat\stdint.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCAccelerometer.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCApplication.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCEGLView.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCFileUtilsWinRT.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCFreeTypeFont.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCGL.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCGL_Angle.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCGL_gl2dx.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCPlatformDefine.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCPrecompiledShaders.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCPThreadWinRT.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCStdC.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\CCWinRTUtils.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\compat\stdint.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\DirectXBase.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\DirectXHelper.h" />
+    <ClInclude Include="cocos2dx\platform\winrt\sha1.h" />
+    <ClInclude Include="cocos2dx\robtop\glfw\glfw3.h" />
+    <ClInclude Include="cocos2dx\robtop\glfw\glfw3native.h" />
+    <ClInclude Include="cocos2dx\robtop\keyboard_dispatcher\CCKeyboardDelegate.h" />
+    <ClInclude Include="cocos2dx\robtop\keyboard_dispatcher\CCKeyboardDispatcher.h" />
+    <ClInclude Include="cocos2dx\robtop\mouse_dispatcher\CCMouseDelegate.h" />
+    <ClInclude Include="cocos2dx\robtop\mouse_dispatcher\CCMouseDispatcher.h" />
+    <ClInclude Include="cocos2dx\robtop\scene_nodes\CCSceneTransitionDelegate.h" />
+    <ClInclude Include="cocos2dx\robtop\xml\DS_Dictionary.h" />
+    <ClInclude Include="cocos2dx\robtop\xml\pugiconfig.hpp" />
+    <ClInclude Include="cocos2dx\robtop\xml\pugixml.hpp" />
+    <ClInclude Include="cocos2dx\script_support\CCScriptSupport.h" />
+    <ClInclude Include="cocos2dx\shaders\CCGLProgram.h" />
+    <ClInclude Include="cocos2dx\shaders\ccGLStateCache.h" />
+    <ClInclude Include="cocos2dx\shaders\CCShaderCache.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShaderEx_SwitchMask_frag.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShaders.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionColorLengthTexture_frag.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionColorLengthTexture_vert.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionColor_frag.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionColor_vert.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionTextureA8Color_frag.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionTextureA8Color_vert.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionTextureColorAlphaTest_frag.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionTextureColor_frag.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionTextureColor_vert.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionTexture_frag.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionTexture_uColor_frag.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionTexture_uColor_vert.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_PositionTexture_vert.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_Position_uColor_frag.h" />
+    <ClInclude Include="cocos2dx\shaders\ccShader_Position_uColor_vert.h" />
+    <ClInclude Include="cocos2dx\sprite_nodes\CCAnimation.h" />
+    <ClInclude Include="cocos2dx\sprite_nodes\CCAnimationCache.h" />
+    <ClInclude Include="cocos2dx\sprite_nodes\CCSprite.h" />
+    <ClInclude Include="cocos2dx\sprite_nodes\CCSpriteBatchNode.h" />
+    <ClInclude Include="cocos2dx\sprite_nodes\CCSpriteFrame.h" />
+    <ClInclude Include="cocos2dx\sprite_nodes\CCSpriteFrameCache.h" />
+    <ClInclude Include="cocos2dx\support\base64.h" />
+    <ClInclude Include="cocos2dx\support\CCNotificationCenter.h" />
+    <ClInclude Include="cocos2dx\support\CCPointExtension.h" />
+    <ClInclude Include="cocos2dx\support\CCProfiling.h" />
+    <ClInclude Include="cocos2dx\support\ccUTF8.h" />
+    <ClInclude Include="cocos2dx\support\ccUtils.h" />
+    <ClInclude Include="cocos2dx\support\CCVertex.h" />
+    <ClInclude Include="cocos2dx\support\component\CCComponent.h" />
+    <ClInclude Include="cocos2dx\support\component\CCComponentContainer.h" />
+    <ClInclude Include="cocos2dx\support\data_support\ccCArray.h" />
+    <ClInclude Include="cocos2dx\support\data_support\uthash.h" />
+    <ClInclude Include="cocos2dx\support\data_support\utlist.h" />
+    <ClInclude Include="cocos2dx\support\image_support\TGAlib.h" />
+    <ClInclude Include="cocos2dx\support\tinyxml2\tinyxml2.h" />
+    <ClInclude Include="cocos2dx\support\TransformUtils.h" />
+    <ClInclude Include="cocos2dx\support\user_default\CCUserDefault.h" />
+    <ClInclude Include="cocos2dx\support\zip_support\ioapi.h" />
+    <ClInclude Include="cocos2dx\support\zip_support\unzip.h" />
+    <ClInclude Include="cocos2dx\support\zip_support\ZipUtils.h" />
+    <ClInclude Include="cocos2dx\textures\CCTexture2D.h" />
+    <ClInclude Include="cocos2dx\textures\CCTextureAtlas.h" />
+    <ClInclude Include="cocos2dx\textures\CCTextureCache.h" />
+    <ClInclude Include="cocos2dx\textures\CCTextureETC.h" />
+    <ClInclude Include="cocos2dx\textures\CCTexturePVR.h" />
+    <ClInclude Include="cocos2dx\text_input_node\CCIMEDelegate.h" />
+    <ClInclude Include="cocos2dx\text_input_node\CCIMEDispatcher.h" />
+    <ClInclude Include="cocos2dx\text_input_node\CCTextFieldTTF.h" />
+    <ClInclude Include="cocos2dx\tilemap_parallax_nodes\CCParallaxNode.h" />
+    <ClInclude Include="cocos2dx\tilemap_parallax_nodes\CCTileMapAtlas.h" />
+    <ClInclude Include="cocos2dx\tilemap_parallax_nodes\CCTMXLayer.h" />
+    <ClInclude Include="cocos2dx\tilemap_parallax_nodes\CCTMXObjectGroup.h" />
+    <ClInclude Include="cocos2dx\tilemap_parallax_nodes\CCTMXTiledMap.h" />
+    <ClInclude Include="cocos2dx\tilemap_parallax_nodes\CCTMXXMLParser.h" />
+    <ClInclude Include="cocos2dx\touch_dispatcher\CCTouch.h" />
+    <ClInclude Include="cocos2dx\touch_dispatcher\CCTouchDelegateProtocol.h" />
+    <ClInclude Include="cocos2dx\touch_dispatcher\CCTouchDispatcher.h" />
+    <ClInclude Include="cocos2dx\touch_dispatcher\CCTouchHandler.h" />
+    <ClInclude Include="extensions\AssetsManager\AssetsManager.h" />
+    <ClInclude Include="extensions\CCBReader\CCBAnimationManager.h" />
+    <ClInclude Include="extensions\CCBReader\CCBFileLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCBKeyframe.h" />
+    <ClInclude Include="extensions\CCBReader\CCBMemberVariableAssigner.h" />
+    <ClInclude Include="extensions\CCBReader\CCBReader.h" />
+    <ClInclude Include="extensions\CCBReader\CCBSelectorResolver.h" />
+    <ClInclude Include="extensions\CCBReader\CCBSequence.h" />
+    <ClInclude Include="extensions\CCBReader\CCBSequenceProperty.h" />
+    <ClInclude Include="extensions\CCBReader\CCBValue.h" />
+    <ClInclude Include="extensions\CCBReader\CCControlButtonLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCControlLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCData.h" />
+    <ClInclude Include="extensions\CCBReader\CCLabelBMFontLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCLabelTTFLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCLayerColorLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCLayerGradientLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCLayerLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCMenuItemImageLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCMenuItemLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCMenuLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCNode+CCBRelativePositioning.h" />
+    <ClInclude Include="extensions\CCBReader\CCNodeLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCNodeLoaderLibrary.h" />
+    <ClInclude Include="extensions\CCBReader\CCNodeLoaderListener.h" />
+    <ClInclude Include="extensions\CCBReader\CCParticleSystemQuadLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCScale9SpriteLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCScrollViewLoader.h" />
+    <ClInclude Include="extensions\CCBReader\CCSpriteLoader.h" />
+    <ClInclude Include="extensions\cocos-ext.h" />
+    <ClInclude Include="extensions\CocoStudio\Action\CCActionEaseEx.h" />
+    <ClInclude Include="extensions\CocoStudio\Action\CCActionFrame.h" />
+    <ClInclude Include="extensions\CocoStudio\Action\CCActionFrameEasing.h" />
+    <ClInclude Include="extensions\CocoStudio\Action\CCActionManager.h" />
+    <ClInclude Include="extensions\CocoStudio\Action\CCActionNode.h" />
+    <ClInclude Include="extensions\CocoStudio\Action\CCActionObject.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\animation\CCArmatureAnimation.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\animation\CCProcessBase.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\animation\CCTween.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\CCArmature.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\CCBone.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\datas\CCDatas.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\display\CCBatchNode.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\display\CCDecorativeDisplay.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\display\CCDisplayFactory.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\display\CCDisplayManager.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\display\CCSkin.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\external_tool\sigslot.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\physics\CCColliderDetector.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\utils\CCArmatureDataManager.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\utils\CCArmatureDefine.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\utils\CCDataReaderHelper.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\utils\CCSpriteFrameCacheHelper.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\utils\CCTransformHelp.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\utils\CCTweenFunction.h" />
+    <ClInclude Include="extensions\CocoStudio\Armature\utils\CCUtilMath.h" />
+    <ClInclude Include="extensions\CocoStudio\Components\CCComAttribute.h" />
+    <ClInclude Include="extensions\CocoStudio\Components\CCComAudio.h" />
+    <ClInclude Include="extensions\CocoStudio\Components\CCComBase.h" />
+    <ClInclude Include="extensions\CocoStudio\Components\CCComController.h" />
+    <ClInclude Include="extensions\CocoStudio\Components\CCComRender.h" />
+    <ClInclude Include="extensions\CocoStudio\Components\CCInputDelegate.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\BaseClasses\UIWidget.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\Layouts\UILayout.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\Layouts\UILayoutDefine.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\Layouts\UILayoutParameter.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\System\CocosGUI.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\System\GUIDefine.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\System\UIHelper.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\System\UITouchGroup.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\Compatible\CompatibleClasses.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\ScrollWidget\UIListView.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\ScrollWidget\UIPageView.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\ScrollWidget\UIScrollInterface.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\ScrollWidget\UIScrollView.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\UIButton.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\UICheckBox.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\UIImageView.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\UILabel.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\UILabelAtlas.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\UILabelBMFont.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\UILoadingBar.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\UIRichText.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\UISlider.h" />
+    <ClInclude Include="extensions\CocoStudio\GUI\UIWidgets\UITextField.h" />
+    <ClInclude Include="extensions\CocoStudio\Json\DictionaryHelper.h" />
+    <ClInclude Include="extensions\CocoStudio\Json\rapidjson\document.h" />
+    <ClInclude Include="extensions\CocoStudio\Json\rapidjson\filestream.h" />
+    <ClInclude Include="extensions\CocoStudio\Json\rapidjson\internal\pow10.h" />
+    <ClInclude Include="extensions\CocoStudio\Json\rapidjson\internal\stack.h" />
+    <ClInclude Include="extensions\CocoStudio\Json\rapidjson\internal\strfunc.h" />
+    <ClInclude Include="extensions\CocoStudio\Json\rapidjson\prettywriter.h" />
+    <ClInclude Include="extensions\CocoStudio\Json\rapidjson\rapidjson.h" />
+    <ClInclude Include="extensions\CocoStudio\Json\rapidjson\reader.h" />
+    <ClInclude Include="extensions\CocoStudio\Json\rapidjson\stringbuffer.h" />
+    <ClInclude Include="extensions\CocoStudio\Json\rapidjson\writer.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\GUIReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\SceneReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\ButtonReader\ButtonReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\CheckBoxReader\CheckBoxReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\ImageViewReader\ImageViewReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\LabelAtlasReader\LabelAtlasReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\LabelBMFontReader\LabelBMFontReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\LabelReader\LabelReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\LayoutReader\LayoutReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\ListViewReader\ListViewReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\LoadingBarReader\LoadingBarReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\PageViewReader\PageViewReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\ScrollViewReader\ScrollViewReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\SliderReader\SliderReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\TextFieldReader\TextFieldReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\WidgetReader.h" />
+    <ClInclude Include="extensions\CocoStudio\Reader\WidgetReader\WidgetReaderProtocol.h" />
+    <ClInclude Include="extensions\CocoStudio\Trigger\ObjectFactory.h" />
+    <ClInclude Include="extensions\CocoStudio\Trigger\TriggerBase.h" />
+    <ClInclude Include="extensions\CocoStudio\Trigger\TriggerMng.h" />
+    <ClInclude Include="extensions\CocoStudio\Trigger\TriggerObj.h" />
+    <ClInclude Include="extensions\ExtensionMacros.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCControl.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCControlButton.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCControlColourPicker.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCControlExtensions.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCControlHuePicker.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCControlPotentiometer.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCControlSaturationBrightnessPicker.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCControlSlider.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCControlStepper.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCControlSwitch.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCControlUtils.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCInvocation.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\CCScale9Sprite.h" />
+    <ClInclude Include="extensions\GUI\CCControlExtension\ColorPickerDelegate.h" />
+    <ClInclude Include="extensions\GUI\CCEditBox\CCEditBox.h" />
+    <ClInclude Include="extensions\GUI\CCEditBox\CCEditBoxImpl.h" />
+    <ClInclude Include="extensions\GUI\CCEditBox\CCEditBoxImplAndroid.h" />
+    <ClInclude Include="extensions\GUI\CCEditBox\CCEditBoxImplIOS.h" />
+    <ClInclude Include="extensions\GUI\CCEditBox\CCEditBoxImplMac.h" />
+    <ClInclude Include="extensions\GUI\CCEditBox\CCEditBoxImplTizen.h" />
+    <ClInclude Include="extensions\GUI\CCEditBox\CCEditBoxImplWin.h" />
+    <ClInclude Include="extensions\GUI\CCEditBox\CCEditBoxImplWp8.h" />
+    <ClInclude Include="extensions\GUI\CCScrollView\CCScrollView.h" />
+    <ClInclude Include="extensions\GUI\CCScrollView\CCSorting.h" />
+    <ClInclude Include="extensions\GUI\CCScrollView\CCTableView.h" />
+    <ClInclude Include="extensions\GUI\CCScrollView\CCTableViewCell.h" />
+    <ClInclude Include="extensions\LocalStorage\LocalStorage.h" />
+    <ClInclude Include="extensions\network\HttpClient.h" />
+    <ClInclude Include="extensions\network\HttpRequest.h" />
+    <ClInclude Include="extensions\network\HttpResponse.h" />
+    <ClInclude Include="extensions\network\WebSocket.h" />
+    <ClInclude Include="extensions\physics_nodes\CCPhysicsDebugNode.h" />
+    <ClInclude Include="extensions\physics_nodes\CCPhysicsSprite.h" />
+    <ClInclude Include="extensions\spine\Animation.h" />
+    <ClInclude Include="extensions\spine\AnimationState.h" />
+    <ClInclude Include="extensions\spine\AnimationStateData.h" />
+    <ClInclude Include="extensions\spine\Atlas.h" />
+    <ClInclude Include="extensions\spine\AtlasAttachmentLoader.h" />
+    <ClInclude Include="extensions\spine\Attachment.h" />
+    <ClInclude Include="extensions\spine\AttachmentLoader.h" />
+    <ClInclude Include="extensions\spine\Bone.h" />
+    <ClInclude Include="extensions\spine\BoneData.h" />
+    <ClInclude Include="extensions\spine\CCSkeleton.h" />
+    <ClInclude Include="extensions\spine\CCSkeletonAnimation.h" />
+    <ClInclude Include="extensions\spine\extension.h" />
+    <ClInclude Include="extensions\spine\Json.h" />
+    <ClInclude Include="extensions\spine\RegionAttachment.h" />
+    <ClInclude Include="extensions\spine\Skeleton.h" />
+    <ClInclude Include="extensions\spine\SkeletonData.h" />
+    <ClInclude Include="extensions\spine\SkeletonJson.h" />
+    <ClInclude Include="extensions\spine\Skin.h" />
+    <ClInclude Include="extensions\spine\Slot.h" />
+    <ClInclude Include="extensions\spine\SlotData.h" />
+    <ClInclude Include="extensions\spine\spine-cocos2dx.h" />
+    <ClInclude Include="extensions\spine\spine.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="gd.h\achievement_nodes\AchievementBar.h" />
+    <ClInclude Include="gd.h\achievement_nodes\AchievementNotifier.h" />
+    <ClInclude Include="gd.h\actions\CCCircleWave.h" />
+    <ClInclude Include="gd.h\audio_nodes\FMODAudioEngine.h" />
+    <ClInclude Include="gd.h\audio_nodes\FMODSound.h" />
+    <ClInclude Include="gd.h\delegates\delegates.h" />
+    <ClInclude Include="gd.h\include\gd.h" />
+    <ClInclude Include="gd.h\include\gdMacros.h" />
+    <ClInclude Include="gd.h\include\GDProtocols.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\CCBlockLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\CCNodeContainer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\CustomSongLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\CustomSongWidget.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\EditorUI.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\FLAlertLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\GJBaseGameLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\GJDropDownLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\GJListLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\GJSpecialColorSelect.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\LevelEditorLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\LoadingCircle.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\LoadingLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\MenuLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\NumberInputLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\OBB2D.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\PauseLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\PlayLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\SetIDPopup.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\SongInfoLayer.h" />
+    <ClInclude Include="gd.h\layers_scenes_transitions_nodes\TextAlertPopup.h" />
+    <ClInclude Include="gd.h\level_nodes\ColorAction.h" />
+    <ClInclude Include="gd.h\level_nodes\GJGameLevel.h" />
+    <ClInclude Include="gd.h\level_nodes\GJSearchObject.h" />
+    <ClInclude Include="gd.h\level_nodes\LevelSettingsObject.h" />
+    <ClInclude Include="gd.h\level_nodes\SongInfoObject.h" />
+    <ClInclude Include="gd.h\manager_nodes\AchievementManager.h" />
+    <ClInclude Include="gd.h\manager_nodes\GameLevelManager.h" />
+    <ClInclude Include="gd.h\manager_nodes\GameManager.h" />
+    <ClInclude Include="gd.h\manager_nodes\GameSoundManager.h" />
+    <ClInclude Include="gd.h\manager_nodes\GJAccountManager.h" />
+    <ClInclude Include="gd.h\manager_nodes\GJEffectManager.h" />
+    <ClInclude Include="gd.h\manager_nodes\GJUserScore.h" />
+    <ClInclude Include="gd.h\manager_nodes\GManager.h" />
+    <ClInclude Include="gd.h\manager_nodes\LocalLevelManager.h" />
+    <ClInclude Include="gd.h\manager_nodes\MusicDownloadManager.h" />
+    <ClInclude Include="gd.h\manager_nodes\ObjectToolbox.h" />
+    <ClInclude Include="gd.h\menu_nodes\CCMenuItemSpriteExtra.h" />
+    <ClInclude Include="gd.h\menu_nodes\CCMenuItemToggler.h" />
+    <ClInclude Include="gd.h\menu_nodes\Slider.h" />
+    <ClInclude Include="gd.h\other_nodes\CheckpointObject.h" />
+    <ClInclude Include="gd.h\other_nodes\PlayerCheckpoint.h" />
+    <ClInclude Include="gd.h\other_nodes\PointNode.h" />
+    <ClInclude Include="gd.h\scroll_nodes\BoomListView.h" />
+    <ClInclude Include="gd.h\scroll_nodes\CCContentLayer.h" />
+    <ClInclude Include="gd.h\scroll_nodes\CCIndexPath.h" />
+    <ClInclude Include="gd.h\scroll_nodes\CCScrollLayerExt.h" />
+    <ClInclude Include="gd.h\scroll_nodes\CustomListView.h" />
+    <ClInclude Include="gd.h\scroll_nodes\ScrollingLayer.h" />
+    <ClInclude Include="gd.h\scroll_nodes\TableView.h" />
+    <ClInclude Include="gd.h\sprite_nodes\AnimatedShopKeeper.h" />
+    <ClInclude Include="gd.h\sprite_nodes\ButtonSprite.h" />
+    <ClInclude Include="gd.h\sprite_nodes\CCAnimatedSprite.h" />
+    <ClInclude Include="gd.h\sprite_nodes\CCSpritePlus.h" />
+    <ClInclude Include="gd.h\sprite_nodes\ColorActionSprite.h" />
+    <ClInclude Include="gd.h\sprite_nodes\GameObject.h" />
+    <ClInclude Include="gd.h\sprite_nodes\GJItemIcon.h" />
+    <ClInclude Include="gd.h\sprite_nodes\GJRobotSprite.h" />
+    <ClInclude Include="gd.h\sprite_nodes\GJSpiderSprite.h" />
+    <ClInclude Include="gd.h\sprite_nodes\GJSpriteColor.h" />
+    <ClInclude Include="gd.h\sprite_nodes\HardStreak.h" />
+    <ClInclude Include="gd.h\sprite_nodes\PlayerObject.h" />
+    <ClInclude Include="gd.h\sprite_nodes\SimplePlayer.h" />
+    <ClInclude Include="gd.h\sprite_nodes\TextArea.h" />
+    <ClInclude Include="gd.h\text_input_nodes\CCTextInputNode.h" />
+    <ClInclude Include="includes.h" />
+    <ClInclude Include="minhook\include\MinHook.h" />
+    <ClInclude Include="minhook\src\buffer.h" />
+    <ClInclude Include="minhook\src\hde\hde32.h" />
+    <ClInclude Include="minhook\src\hde\hde64.h" />
+    <ClInclude Include="minhook\src\hde\pstdint.h" />
+    <ClInclude Include="minhook\src\hde\table32.h" />
+    <ClInclude Include="minhook\src\hde\table64.h" />
+    <ClInclude Include="minhook\src\trampoline.h" />
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="minhook\src\buffer.c" />
+    <ClCompile Include="minhook\src\hde\hde32.c" />
+    <ClCompile Include="minhook\src\hde\hde64.c" />
+    <ClCompile Include="minhook\src\hook.c" />
+    <ClCompile Include="minhook\src\trampoline.c" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="minhook\dll_resources\MinHook.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="minhook\dll_resources\MinHook.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
