@@ -14,7 +14,7 @@ Also it doesnt support additional textures, only 1(it is the level)
 
 # How it works
 
-Each frame it makes a "screenshot" of the level,ground,bg etc. and then applies a shader to it. Yes yes i know that it's extremly unefficient(40fps on 1080p) so it lowers the quality 1.5-2 times, it's not very noticable.
+Each frame it makes a "screenshot" of the level,ground,bg etc. and then applies a shader to it. It has pretty good fps and doesnt lower the resolution(after the update on 18.06.22)
 
 If you know a working different way to do it please text me in discord Jaan#2897
 
@@ -24,7 +24,7 @@ Jaan#2897 in discord; feel free to message me
 
 # Credits
 
-* matcool for menu-shaders
+* matcool for menu-shaders and an optimization idea!!
 * gd programming for yes.
 * gdl team for support
 * kolyah35 for the original idea
