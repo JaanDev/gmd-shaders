@@ -20,25 +20,18 @@ inline void patch(void* loc, std::vector<std::uint8_t> bytes) {
 	VirtualProtect(loc, size, old_prot, &old_prot);
 }
 
-float downscale = 1.5; // this is pretty much required because fullhd without downscaling is ~40fps which isnt good
-					   // however downscaling isnt too much noticable so 2-1.5 is ok
 CCSprite* s;
 GLuint m_uniformResolution;
 CCLayer* l;
+CCRenderTexture* rt;
 
-inline bool(__thiscall* init)(CCLayer* self, void* GJGameLevel);
-bool __fastcall init_hk(CCLayer* self, int edx, void* GJGameLevel) {
+inline bool(__thiscall* init)(gd::PlayLayer* self, void* GJGameLevel);
+bool __fastcall init_hk(gd::PlayLayer* self, int edx, void* GJGameLevel) {
 	bool ret = init(self, GJGameLevel);
 	if (!ret)
 		return ret;
-
+	
 	//https://github.com/matcool/small-gd-mods/blob/main/src/menu-shaders.cpp
-
-	static bool hasPatched = false;
-	if (!hasPatched) {
-		patch(reinterpret_cast<void*>(gd::base + 0x23b56), { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 });
-		hasPatched = true;
-	}	
 
 	auto winSize = CCDirector::sharedDirector()->getWinSize();
 	int w = winSize.width;
@@ -47,10 +40,16 @@ bool __fastcall init_hk(CCLayer* self, int edx, void* GJGameLevel) {
 	// ADDING NEW LAYER
 	auto children = self->getChildren();
 
-	auto node1 = dynamic_cast<CCNode*>(children->objectAtIndex(3));
-	auto node2 = dynamic_cast<CCNode*>(children->objectAtIndex(0));
-	auto node3 = dynamic_cast<CCNode*>(children->objectAtIndex(4));
-	auto node4 = dynamic_cast<CCNode*>(children->objectAtIndex(5));
+	CCNode* node1 = nullptr;
+	for (int i = 0; i < self->getChildrenCount(); i++) {
+		if (dynamic_cast<CCSprite*>(self->getChildren()->objectAtIndex(i)) != nullptr) {
+			node1 = (CCNode*)self->getChildren()->objectAtIndex(i);
+			break;
+		}
+	}
+	auto node2 = self->m_pObjectLayer;
+	auto node3 = self->m_bottomGround;
+	auto node4 = self->m_topGround;
 
 	l = CCLayer::create();
 	self->addChild(l, 5);
@@ -60,31 +59,28 @@ bool __fastcall init_hk(CCLayer* self, int edx, void* GJGameLevel) {
 	l->addChild(node3);
 	l->addChild(node4);
 
-	l->setScale(l->getScale() / downscale);
 	l->setPosition(l->getPosition() - ccp(
-		(winSize.width / 2) - (winSize.width / downscale / 2),
-		(winSize.height / 2) - (winSize.height / downscale / 2)
+		(winSize.width / 2) - (winSize.width / 2),
+		(winSize.height / 2) - (winSize.height / 2)
 	));
 
 	// render
+	rt = CCRenderTexture::create(w, h);
+	rt->getSprite()->getTexture()->setAntiAliasTexParameters();
 
-	auto a = CCRenderTexture::create(w / downscale, h / downscale);
-	a->getSprite()->getTexture()->setAntiAliasTexParameters();
-
-	a->begin();
+	rt->beginWithClear(0, 0, 0, 0);
 	l->visit();
-	a->end();
-	s = a->getSprite();
+	rt->end();
 
-	s->setAnchorPoint({ 0,1 });
-	s->setPosition({ 0,0 });
-	s->setScale(downscale * downscale);
-	s->setScaleY(-downscale * downscale);
+	//cout << "2" << endl;
+	
+	s = rt->getSprite();
 
-	self->addChild(s, 5);
+	self->addChild(rt, 5);
+	rt->setScale(3);
 
 	string shaderSource = STRINGIFY(
-	uniform vec2 resolution;
+		uniform vec2 resolution;
 	float time = CC_Time.y; // not very accurate but at least works
 
 	uniform sampler2D sprite0;
@@ -134,35 +130,28 @@ bool __fastcall init_hk(CCLayer* self, int edx, void* GJGameLevel) {
 	auto glv = CCDirector::sharedDirector()->getOpenGLView();
 	auto frSize = glv->getFrameSize();
 	float wi = frSize.width, he = frSize.height;
-	GLfloat vertices[12] = { 0,0, wi,0, wi,he, 0,0, 0,he, wi,he };
 
 	s->getShaderProgram()->setUniformLocationWith2f(m_uniformResolution, wi, he);
-
-	ccGLEnableVertexAttribs(kCCVertexAttribFlag_Position);
-	glVertexAttribPointer(kCCVertexAttrib_Position, 2, GL_FLOAT, GL_FALSE, 0, vertices);
-	glDrawArraysEXT(GL_TRIANGLES, 0, 6);
 
 	shader->release();
 
 	return ret;
 }
 
-void(__thiscall* update)(gd::PlayLayer* self, float dt);
-void __fastcall update_hk(gd::PlayLayer* self, void*, float dt) {
-	update(self, dt);
-
-	auto winSize = CCDirector::sharedDirector()->getWinSize();
-	int w = winSize.width;
-	int h = winSize.height;
-
-	auto a = CCRenderTexture::create(w / downscale, h / downscale);
-	a->getSprite()->getTexture()->setAntiAliasTexParameters();
-
-	a->begin();
+bool(__thiscall* visit)(CCLayer*);
+bool __fastcall visit_hk(CCLayer* self, void*) {
+	rt->beginWithClear(0, 0, 0, 0);
 	l->visit();
-	a->end();
+	rt->end();
 
-	s->setTexture(a->getSprite()->getTexture());
+	// we dont need to render the layer twice
+	// nah i decided to comment this out
+	
+	//l->setVisible(false);
+	auto ret = visit(self);
+	//l->setVisible(true);
+
+	return ret;
 }
 
 #define CONSOLE 0 // 1 - create a console attached to gd; 0 - dont
@@ -182,9 +171,9 @@ DWORD WINAPI my_thread(void* hModule) {
 	);
 
 	MH_CreateHook(
-		(PVOID)(gd::base + 0x2029C0),
-		update_hk,
-		(PVOID*)&update
+		(PVOID)(gd::base + 0x200020),
+		visit_hk,
+		(PVOID*)&visit
 	);
 
 	MH_EnableHook(MH_ALL_HOOKS);

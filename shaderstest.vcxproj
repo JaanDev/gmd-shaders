@@ -129,7 +129,7 @@
       <AdditionalOptions>/FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
-      <Command>copy "D:\Dev\VisualStudio\GD\CappuccinoSDK\CappuccinoSDK-master\projects\shaderstest\Build\Release\shaderstest.dll" "D:\SteamLibrary\steamapps\common\Geometry Dash Geode\extensions\shaderstest.dll"</Command>
+      <Command>copy "D:\Dev\VisualStudio\GD\CappuccinoSDK\CappuccinoSDK-master\projects\shaderstest\Build\Release\shaderstest.dll" "D:\SteamLibrary\steamapps\common\Geometry.Dash.v07.24.2021\adaf-dll\shaderstest.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
